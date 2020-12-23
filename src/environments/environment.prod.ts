@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://shrouded-lake-54076.herokuapp.com/'
 };
