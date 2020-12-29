@@ -14,12 +14,19 @@ import { MatChipsModule } from '@angular/material/chips';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { CoursesComponent } from './courses/courses.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import {MatIconModule} from '@angular/material/icon'
+
 @NgModule({
   declarations: [
     AppComponent,
     PublicComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    CoursesComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,11 @@ import { MatButtonModule } from '@angular/material/button';
     MatSelectModule,
     MatCheckboxModule,
     MatChipsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

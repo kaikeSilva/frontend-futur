@@ -3,6 +3,8 @@ import { resolveSanitizationFn } from '@angular/compiler/src/render3/view/templa
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { User } from '../models/user';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,10 +13,10 @@ import { environment } from 'src/environments/environment';
 })
 export class DashboardComponent implements OnInit {
 
-  user: any
+  user!: User
 
   constructor(
-    private _http: HttpClient,
+    private _userService: UserService,
     private _router: Router,
   ) {}
   
@@ -23,8 +25,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getUser() {
-    var url = environment.apiUrl + '/api/users'
-    this._http.get(url, {headers: {authorization: "Bearer "+localStorage.getItem('token')}}).subscribe(
+    this._userService.getUser().subscribe(
       (res: any) => {
         this.user = res
         console.log(this.user);

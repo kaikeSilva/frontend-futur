@@ -16,8 +16,11 @@
                 <a class="nav-link" routerLink="/register">Registrar</a>
             </li> 
             <li *ngIf="!public" class="nav-item">
+                <a class="nav-link" routerLink="/courses">Cursos</a>
+            </li> 
+            <li *ngIf="!public" class="nav-item">
                 <a class="nav-link" href="#" (click)="logout()">logout</a>
-            </li>                
+            </li>                 
         </ul>
     </div>
 </nav>
