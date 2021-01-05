@@ -18,7 +18,11 @@ import { MatTableModule } from '@angular/material/table';
 import { CoursesComponent } from './courses/courses.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import {MatIconModule} from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon'
+import { FlexLayoutModule  } from '@angular/flex-layout'
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { CourseFormComponent } from './courses/course-form/course-form.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,8 @@ import {MatIconModule} from '@angular/material/icon'
     DashboardComponent,
     NavbarComponent,
     CoursesComponent,
+    CourseFormComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +48,19 @@ import {MatIconModule} from '@angular/material/icon'
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    FlexLayoutModule
   ],
-  providers: [],
+  providers: [ 
+    {
+      provide: MAT_DIALOG_DEFAULT_OPTIONS, 
+      useValue: {hasBackdrop: false}
+    }
+  ],
+  entryComponents: [
+    CourseFormComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

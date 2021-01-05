@@ -44,7 +44,6 @@ export class RegisterComponent implements OnInit {
   submit() {
     const formData =  this.form.getRawValue()
 
-    console.log(formData);
     this._authService.register(formData).subscribe(
       (result: any) => {
       localStorage.setItem('token', result.access_token)

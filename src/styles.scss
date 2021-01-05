@@ -7,8 +7,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color:#d9534f
 }
 
+.color-green {
+    color: #fff !important;
+    background-color: #28a745 !important;
+}
+
 .color-secondary {
     color: #8a8a8a
+}
+
+.bg-secondary {
+    background-color:#8a8a8a
 }
 
 :focus {

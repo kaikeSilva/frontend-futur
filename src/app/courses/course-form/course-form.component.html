@@ -1,0 +1,77 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-dialog-content>
+    <div [formGroup]="form">
+        <div class="form-group">
+            <input 
+            formControlName="name" 
+            type="text" 
+            class="form-control" 
+            placeholder="Nome">
+            <small *ngIf="name?.errors?.required && (name?.dirty || name?.touched)" class="text-danger">O Nome é obrigatório.</small>
+        </div>
+    
+        <div class="form-group">
+            <textarea 
+            class="form-control" 
+            placeholder="Descrição do curso"
+            formControlName="description" 
+            cols="30" 
+            rows="5">
+            </textarea>
+            <small *ngIf="description?.errors?.required && (description?.dirty || description?.touched)" class="text-danger">A descrição é obrigatória.</small>
+        </div>
+
+        <div class="form-group">
+            <input 
+            type="text"
+            class="form-control" 
+            placeholder="local do curso"
+            formControlName="resource_place">
+            <small *ngIf="resource_place?.errors?.required && (resource_place?.dirty || resource_place?.touched)" class="text-danger">O local do curso é obrigatória.</small>
+        </div>
+
+        <div >
+            <div fxLayout="colun">
+                <input 
+                type="number"
+                class="form-control" 
+                placeholder="horas"
+                formControlName="duration_hours">
+               
+                <input 
+                type="number"
+                class="form-control" 
+                placeholder="minutos"
+                formControlName="duration_minutes">
+            </div>
+
+            <div fxLayout="row">
+                <small *ngIf="duration_hours?.errors?.required && (duration_hours?.dirty || duration_hours?.touched)" class="text-danger">A quantidade de horas é obrigatória.</small>
+                <small *ngIf="duration_minutes?.errors?.required && (duration_minutes?.dirty || duration_minutes?.touched)" class="text-danger">A quantidade de minutos é obrigatória.</small>    
+            </div>        
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button 
+    type="button"
+    mat-flat-button 
+    mat-dialog-close
+    class="bg-danger text-light" >Cancel</button>
+  <button 
+    *ngIf="creating"
+    type="button"
+    [disabled]="!form.valid"
+    (click)="create()"
+    mat-flat-button 
+    class="bg-primary text-light"
+  >salvar</button>
+  <button
+    *ngIf="!creating"
+    type="button"
+    [disabled]="!form.valid"
+    (click)="update()"
+    mat-flat-button 
+    class="bg-primary text-light"
+  >atualizar</button>
+</mat-dialog-actions>
