@@ -31,12 +31,19 @@ export class CourseFormComponent implements OnInit {
   }
 
   createForm() {
+    if (this.creating) {
+      return this._formBuilder.group({
+        name:  [this.course?.name, Validators.required],
+        description:  [this.course?.description, Validators.required],
+        resource_place:  [this.course?.resource_place, Validators.required],
+        duration_minutes:  [this.course?.duration_minutes, Validators.required],
+        duration_hours:  [this.course?.duration_minutes, Validators.required],
+      })
+    }
     return this._formBuilder.group({
       name:  [this.course?.name, Validators.required],
       description:  [this.course?.description, Validators.required],
-      resource_place:  [this.course?.resource_place, Validators.required],
-      duration_minutes:  [this.course?.duration_minutes, Validators.required],
-      duration_hours:  [this.course?.duration_minutes, Validators.required],
+      resource_place:  [this.course?.resource_place, Validators.required]
     })
   }
 

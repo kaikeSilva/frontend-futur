@@ -6,6 +6,7 @@ import { LoginComponent } from './public/login/login.component';
 import { PublicComponent } from './public/public.component';
 import { RegisterComponent } from './public/register/register.component';
 import { CoursesComponent } from './courses/courses.component';
+import { GoalsComponent } from './goals/goals.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
     ]
   },
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'courses', component: CoursesComponent}
+  {path: 'courses', component: CoursesComponent},
+  {path: 'goals', component: GoalsComponent},
 ];
 
 @NgModule({

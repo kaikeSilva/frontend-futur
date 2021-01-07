@@ -30,7 +30,7 @@
             <small *ngIf="resource_place?.errors?.required && (resource_place?.dirty || resource_place?.touched)" class="text-danger">O local do curso é obrigatória.</small>
         </div>
 
-        <div >
+        <div  *ngIf="creating">
             <div fxLayout="colun">
                 <input 
                 type="number"

@@ -23,6 +23,8 @@ import { FlexLayoutModule  } from '@angular/flex-layout'
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { CourseFormComponent } from './courses/course-form/course-form.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { GoalsComponent } from './goals/goals.component';
+import { GoalsFormComponent } from './goals/goals-form/goals-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     NavbarComponent,
     CoursesComponent,
     CourseFormComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    GoalsComponent,
+    GoalsFormComponent
   ],
   imports: [
     BrowserModule,

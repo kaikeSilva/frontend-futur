@@ -1,0 +1,71 @@
+<h2 mat-dialog-title>{{dialogTitle}}</h2>
+<mat-dialog-content>
+    <div [formGroup]="form">
+        <div class="form-group">
+            <input 
+            formControlName="title" 
+            type="text" 
+            class="form-control" 
+            placeholder="Titulo">
+            <small *ngIf="title?.errors?.required && (title?.dirty || title?.touched)" class="text-danger">O titulo é obrigatório.</small>
+        </div>
+    
+        <div class="form-group">
+            <textarea 
+            class="form-control" 
+            placeholder="Descrição da meta"
+            formControlName="description" 
+            cols="30" 
+            rows="5">
+            </textarea>
+            <small *ngIf="description?.errors?.required && (description?.dirty || description?.touched)" class="text-danger">A descrição é obrigatória.</small>
+        </div>
+
+        <div *ngIf="creating" class="form-group">
+            <input 
+            type="text"
+            class="form-control" 
+            placeholder="dias para cumprir"
+            formControlName="days_limit">
+            <small *ngIf="days_limit?.errors?.required && (days_limit?.dirty || days_limit?.touched)" class="text-danger">O tempo de alcance da meta é obrigatório.</small>
+        </div>
+
+        <div *ngIf="creating">
+            <mat-label>Cursos</mat-label>
+            <mat-select 
+            formControlName="courses"
+            multiple>
+                <mat-option  *ngFor="let course of coursesForSelect" [value]="course.id">
+                {{course.name}}
+                </mat-option>
+            </mat-select>
+
+            <div fxLayout="row">
+                <small *ngIf="courses?.errors?.required && (courses?.dirty || courses?.touched)" class="text-danger">O campo cursos não pode ser vazio.</small>
+            </div>        
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button 
+    type="button"
+    mat-flat-button 
+    mat-dialog-close
+    class="bg-danger text-light" >Cancel</button>
+  <button 
+    *ngIf="creating"
+    type="button"
+    [disabled]="!form.valid"
+    (click)="create()"
+    mat-flat-button 
+    class="bg-primary text-light"
+  >salvar</button>
+  <button
+    *ngIf="!creating"
+    type="button"
+    [disabled]="!form.valid"
+    (click)="update()"
+    mat-flat-button 
+    class="bg-primary text-light"
+  >atualizar</button>
+</mat-dialog-actions>
