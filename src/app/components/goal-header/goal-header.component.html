@@ -1,0 +1,20 @@
+<div class=" mx-auto p-2" fxFlex="85">
+    <div fxLayout="column">
+        <div class="" fxLayout.lt-sm="column" fxLayout.gt-sm="row" fxLayoutAlign="space-around center" >
+            <div fxFlex.gt-sm="50" fxFlex.lt-sm="100">
+                <strong class="mat-display-1 ">{{goal?.title}}</strong><br>
+                <p class="mat-subheading-2 mt-2">{{goal?.description}}</p>
+            </div>
+        
+            <div fxFlex.gt-sm="20"  fxLayoutAlign.lt-sm="center center">
+                <app-circle-progress-bar fxFlex.lt-sm="50" class="" [percentage]="percentageComplete"></app-circle-progress-bar>      
+            </div>  
+        </div>
+        <div fxLayout="row" fxLayoutGap="24px">
+            <div *ngFor="let course of goal?.courses">
+                <app-course-card [course]="course"></app-course-card>    
+            </div>
+        </div>
+    </div>
+</div>
+
