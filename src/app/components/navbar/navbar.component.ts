@@ -29,4 +29,9 @@ export class NavbarComponent implements OnInit {
     (err: any) => console.log("deu erro",err))
   }
   
+  navigate(route: string) {
+    if (route === '/' && !this.public) {
+      this._router.navigate(["/dashboard"])
+    } else this._router.navigate([route])
+  }
 }

@@ -15,4 +15,4 @@ import { CircleProgressBarComponent } from './circle-progress-bar.component';
     CircleProgressBarComponent
   ]
 })
-export class CircleProgressBarModule { }
+export class CircleProgressBarModule {}

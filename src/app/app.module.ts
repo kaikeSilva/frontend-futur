@@ -25,7 +25,15 @@ import { CourseFormComponent } from './courses/course-form/course-form.component
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { GoalsComponent } from './goals/goals.component';
 import { GoalsFormComponent } from './goals/goals-form/goals-form.component';
-
+import { GoalDetailsComponent } from './goals/goal-details/goal-details.component';
+import { ItemCellComponent } from './components/item-cell/item-cell.component';
+import { GoalHeaderComponent } from './components/goal-header/goal-header.component';
+import { CircleProgressBarComponent } from './components/circle-progress-bar/circle-progress-bar.component';
+import { CourseCardComponent } from './components/course-card/course-card.component';
+import { LinearProgressBarComponent } from './components/linear-progress-bar/linear-progress-bar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { HomeComponent } from './public/home/home.component';
+import { CircleProgressBarModule } from './components/circle-progress-bar/circle-progress-bar.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +44,12 @@ import { GoalsFormComponent } from './goals/goals-form/goals-form.component';
     CourseFormComponent,
     ConfirmDialogComponent,
     GoalsComponent,
-    GoalsFormComponent
+    GoalsFormComponent,
+    GoalDetailsComponent,
+    ItemCellComponent,
+    GoalHeaderComponent,
+    CourseCardComponent,
+    LinearProgressBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +67,9 @@ import { GoalsFormComponent } from './goals/goals-form/goals-form.component';
     MatTableModule,
     MatIconModule,
     MatDialogModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    CircleProgressBarModule,
+    MatToolbarModule,
   ],
   providers: [ 
     {
@@ -63,7 +78,7 @@ import { GoalsFormComponent } from './goals/goals-form/goals-form.component';
     }
   ],
   entryComponents: [
-    CourseFormComponent
+    CourseFormComponent,
   ],
   bootstrap: [AppComponent]
 })

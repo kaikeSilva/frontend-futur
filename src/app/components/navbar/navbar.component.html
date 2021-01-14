@@ -1,33 +1,19 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark mb-4">
-    <ul class="navbar-nav mr-auto">
-        <li *ngIf="public" class="nav-item active">
-            <a class="nav-link" routerLink="/">Home</a>
-        </li>
-        <li *ngIf="!public" class="nav-item active">
-            <a class="nav-link" routerLink="/dashboard">Home</a>
-        </li>
-    </ul>
-    <div>
-        <ul class="navbar-nav ml-auto ">
-            <li *ngIf="public" class="nav-item">
-                <a class="nav-link" routerLink="/login">Login</a>
-            </li>
-            <li *ngIf="public" class="nav-item">
-                <a class="nav-link" routerLink="/register">Registrar</a>
-            </li> 
-            <li *ngIf="!public" class="nav-item">
-                <a class="nav-link" routerLink="/courses">Cursos</a>
-            </li>
-            <li *ngIf="!public" class="nav-item">
-                <a class="nav-link" routerLink="/goals">Metas</a>
-            </li> 
-            <li *ngIf="!public" class="nav-item">
-                <a class="nav-link" href="#" (click)="logout()">logout</a>
-            </li> 
-                            
-        </ul>
+<div class="padding-custom">
+    <div class="bg-dark-custom" fxLayout="row" fxLayoutAlign="space-between center">
+
+        <button class="brand-custom-button" (click)="navigate('/')">
+            <img src="../../../assets/images/logo.svg" width="50px" height="50px">
+        </button>
+
+        <div fxLayout="row" fxLayoutGap="10px">
+            <button class="link-button" (click)="navigate('')"*ngIf="public"  (click)="navigate('/login')">Login</button>
+            <button class="register" *ngIf="public" (click)="navigate('/register')">Registrar</button>
+            <button class="link-button" *ngIf="!public" (click)="navigate('/courses')">Cursos</button>
+            <button class="link-button" *ngIf="!public"  (click)="navigate('/goals')">Metas</button>
+            <button class="logout" *ngIf="!public" (click)="logout()">Logout</button>
+        </div>
     </div>
-</nav>
-<div class="container">
+</div>
+<div>
     <router-outlet></router-outlet>
 </div>

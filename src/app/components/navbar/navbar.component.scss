@@ -1,0 +1,47 @@
+@import "../../../colors.scss";
+.bg-dark-custom {
+    background-color: color(darkBackground) ;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    background-color: color(darkBackground);
+}
+
+.padding-custom { 
+    padding: 10px 20px;
+    box-shadow:  3px -3px 9px color(boxShadowDark-1),
+             -3px 3px 9px #ffffff;
+}
+
+
+button.link-button, .register, .logout {
+    border: 1px solid color(boxShadowLight-1);
+    text-decoration: none;
+    padding: 10px;
+    background-color: color(darkBackground);
+    transition: box-shadow ease-in-out .3s;
+    font-size: 1rem;
+    cursor: pointer;
+} 
+
+button.link-button:hover {
+    border-color: transparent;
+    box-shadow:  3px -3px 9px #ffffff,
+        -3px 3px 9px #ffffff
+}
+
+div {
+    .register, .logout {
+        border: none;
+        transition: box-shadow ease-in-out .5s;
+        box-shadow:  3px -3px 9px color(boxShadowDark-1),
+             -3px 3px 9px #ffffff;
+    }
+
+    .register:hover, .logout:hover {
+        box-shadow:  5px -5px 12px color(boxShadowDark-1),
+             -5px 5px 12px #ffffff;
+    }
+}
