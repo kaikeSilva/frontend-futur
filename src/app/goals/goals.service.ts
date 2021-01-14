@@ -44,6 +44,13 @@ export class GoalsService {
     )
   }
 
+  show(id: number) {
+    const url = environment.apiUrl + '/api/goals/'+id
+    return this._http.get(url, {headers: {accept: 'application/json', authorization: "Bearer "+localStorage.getItem('token')}}).pipe(
+      map((res: any) => res.data = new Goal().deserialize(res.data))
+    )
+  }
+
   delete(id: number) {
     const url = environment.apiUrl + '/api/goals/'+id
     return this._http.delete(url, {headers: {accept: 'application/json', authorization: "Bearer "+localStorage.getItem('token')}})

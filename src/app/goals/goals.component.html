@@ -1,5 +1,5 @@
 <app-navbar [public]="false"></app-navbar>
-<div class="container px-5" fxLayoutAlign="end">
+<div class="container px-5 border" fxLayoutAlign="end">
   <button  
   mat-raised-button 
   (click)="create()"> 
@@ -39,4 +39,3 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let goal; columns: displayedColumns" (click)="details(goal)"></tr>
 </table>
-

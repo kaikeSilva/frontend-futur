@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { ConfirmDialogComponent } from '../components/confirm-dialog/confirm-dialog.component';
 import { Goal } from '../models/goal';
@@ -17,7 +18,8 @@ export class GoalsComponent implements OnInit {
 
   constructor(
     private _goalService: GoalsService,
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private _router: Router
   ) { }
 
   ngOnInit(): void {
@@ -105,6 +107,6 @@ export class GoalsComponent implements OnInit {
   }
 
   details (goal: Goal) {
-    console.log("detalhes",goal);
+    this._router.navigate(['/goal', goal.id]);
   }
 }
