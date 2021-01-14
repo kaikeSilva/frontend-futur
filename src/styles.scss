@@ -1,7 +1,19 @@
+@import "colors.scss"; 
 /* You can add global styles to this file, and also import other style files */
+* {
+    padding: 0;
+    margin: 0;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+    height: 100%;
+}
+
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: color(darkBackground) !important;
+}
 
 .color-danger {
     color:#d9534f
@@ -28,3 +40,7 @@ table {
     width: 80%;
     margin: 0 auto;
 }
+
+.border-red {
+    border: 10px solid #f00 ;
+} 

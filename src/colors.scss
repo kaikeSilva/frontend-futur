@@ -1,0 +1,16 @@
+$colors: (
+    darkBackground: #f0f0f0,
+    primaryColor: aqua,
+    boxShadowLight-1:  #ffffff,
+    boxShadowDark-1: #00000080,
+    fontColorDark: #080808,
+    green: #28a745,
+);
+
+@function color ($color-name) {
+    @return map-get($colors, $color-name)
+}
+
+.border-red {
+    border: 2px solid red;
+}
