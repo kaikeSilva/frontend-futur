@@ -1,0 +1,26 @@
+@import "../../../colors.scss";
+
+.body {
+    max-width: 100%;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../../../assets/images/home-image.svg");
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 40%;
+    position: fixed;
+
+    .text-container {
+        border-radius: 10px;
+        box-shadow:  3px -3px 9px color(boxShadowDark-1),
+        -3px 3px 9px #ffffff;
+
+        .text-custom {
+            color: color(fontColorDark);
+            line-height: 4rem;
+            font-size: 3rem;
+            font-weight: lighter;
+            font-family: sans-serif 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    }
+}
