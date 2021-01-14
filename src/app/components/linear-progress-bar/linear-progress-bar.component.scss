@@ -1,0 +1,46 @@
+$colors: (
+    backgroundColor: #dde1e7,
+    primaryColor: aqua,
+    boxShadowLight-1:  #ffffff,
+    boxShadowDark-1: #00000080
+);
+
+$circle: (
+    r: 140
+);
+
+@function circunference () {
+    @return map-get($circle, r)*2*3.14
+}
+
+@function color ($color-name) {
+    @return map-get($colors, $color-name)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+
+    .linear-bar-white {
+        
+        height: 15px;
+        border-radius: 10px;
+        box-shadow: inset 3px 3px 5px color(boxShadowLight-1),
+            inset -3px -3px 5px color(boxShadowDark-1);
+        
+        .linear-bar-yellow {
+            opacity: .5;
+            width: 70%;
+            height: 100%;
+            border-radius: 10px;
+            background-color: color(primaryColor);
+        }
+    }
+}
