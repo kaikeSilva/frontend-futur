@@ -1,25 +1,37 @@
-<div>
-    <div 
-    fxLayout="column" 
-    fxLayoutAlign="space-between start" 
-    class="p-3 card-shadow background-slide">
-        <span class="h4">{{ goalItem?.course?.name }}</span><br>
+<div class="card-container card-shadow ">
+    <div #bgSlide class="bg-slide " [ngClass]="{'transition-after': goalItem?.status}">
         <div 
-        class="icon-options p-2"
-        fxLayoutGap="5px"
-        fxLayout="row" 
-        fxLayoutAlign="center center">
-            <mat-icon (click)="done()" class="icon-button icon-green">check_circle</mat-icon>
-            <mat-icon class="icon-button icon-light-red">cancel</mat-icon>
-            <mat-icon class="icon-button icon-light-blue">link</mat-icon>
-        </div>
+        fxLayout="column" 
+        fxLayoutAlign="space-between start" 
+        class="p-3 background-slide">
+            <span class="h4 text">{{ goalItem?.course?.name }}</span><br>
+            <div 
+            *ngIf="!loading"
+            class="icon-options p-2"
+            fxLayoutGap="5px"
+            fxLayout="row" 
+            fxLayoutAlign="center center ">
+                <mat-icon *ngIf="!goalItem?.status" (click)="done('done')" class="icon-button icon-green">check_circle</mat-icon>
+                <mat-icon *ngIf="goalItem?.status" (click)="done('undone')" class="icon-button icon-light-red">cancel</mat-icon>
+                <mat-icon class="icon-button icon-light-blue">link</mat-icon>
+            </div>
 
-        <div 
-        fxLayoutGap="3px"
-        fxLayout="row" 
-        fxLayoutAlign="start center">
-            <mat-icon>schedule</mat-icon>
-            <span class="">{{ goalItem?.time_formatted }}</span>
+            <div 
+            *ngIf="loading"
+            class="icon-options p-2"
+            fxLayoutGap="5px"
+            fxLayout="row" 
+            fxLayoutAlign="center center ">
+                <mat-icon class="icon-button icon-green icon-loading">cached</mat-icon>
+            </div>
+    
+            <div 
+            fxLayoutGap="3px"
+            fxLayout="row" 
+            fxLayoutAlign="start center">
+                <mat-icon class="icon">schedule</mat-icon>
+                <span class="">{{ goalItem?.time_formatted }}</span>
+            </div>
         </div>
     </div>
 </div>
