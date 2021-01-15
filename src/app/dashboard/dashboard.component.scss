@@ -1,0 +1,51 @@
+@import "../../colors.scss";
+
+.dayly-items-scroll {
+    max-height: 85vh;
+    height: 85vh;
+    padding: 5px;
+    overflow: hidden;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+
+    div {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+
+    .goal-item-button {
+        border-radius: 10px;
+        background-color: transparent;
+        scroll-padding: 10px;
+        transition: box-shadow ease-in-out .3s,
+            background-color ease-in-out .1s,
+            color ease-in-out .1s;
+    }
+
+    .goal-item-button:hover {
+        cursor: pointer;
+        box-shadow: 3px 3px 6px color(boxShadowDark-1),
+        -3px -3px 6px color(boxShadowLight-1);
+    }
+
+    .goal-item-button:active {
+        cursor: pointer;
+        color: color(darkBackground);
+        background-color: color(prymaryDarkBlue);
+    }
+
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: color(prymaryLightBlue);
+}
+
+.focus {
+    color: color(darkBackground) !important;
+    background-color: color(prymaryDarkBlue) !important;
+}

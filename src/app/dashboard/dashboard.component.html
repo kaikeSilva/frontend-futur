@@ -1,3 +1,30 @@
-<app-navbar [public]="false"></app-navbar>
-<h1>Bem vindo {{ user?.name }}</h1>
-<div *ngFor="let course of user?.courses" > {{ course.name }} </div>
+<app-navbar [user]="user?.name || '' " [public]="false"></app-navbar>
+<div class="d-flex">
+    <div #scrollItems 
+    class="dayly-items-scroll w-25 pr-2 navbar-shadow rounded-bottom">
+        <button 
+        #buttonGoal
+        id="{{goal.id}}" 
+        (click)="goalCliked(goal)" 
+        class="p-3 text-left w-100 mb-2 goal-item-button" 
+        *ngFor="let goal of user?.goals" > {{ goal.title }} </button>
+    </div>
+    <div 
+    class="p-3" 
+    fxFlex
+    fxLayout="row wrap"
+    fxLayoutAlign="start start"
+    fxLayoutGap="20px">
+        <!-- TODO: Aparecer no dashboard apenas os goals com itens para o dia -->
+        <div *ngFor="let goalItem of goal?.goal_items_for_today " 
+        class="mb-3" 
+        fxFlex="30"
+        fxFlex.sm="45"
+        fxFlex.xs="75">
+            <app-goal-item-cell 
+            [goalItem]="goalItem" 
+            ></app-goal-item-cell>
+        </div>
+    </div>
+</div>
+
