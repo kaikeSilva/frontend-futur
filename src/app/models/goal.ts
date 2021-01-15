@@ -8,6 +8,7 @@ export class Goal {
     description!: string
     total_minutes!: number
     percentage_complete!: number
+    today_percentage_complete!: number
     days_limit!: number
     _courses!:  Course[]
     _goal_items!: GoalItem[]

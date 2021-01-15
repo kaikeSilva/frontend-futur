@@ -9,8 +9,19 @@ export class CircleProgressBarComponent implements OnInit {
   private _circunference!: number 
   private _percentage!: number 
   private _circle!: ElementRef;
-  
   private _loaded: boolean = false
+
+  colorGreen: any = {
+    red: 92, 
+    green: 184,
+    blue: 92
+  } 
+
+  colorRed : any = {
+    red: 247, 
+    green: 32, 
+    blue: 32
+  } 
 
 
   @Input()
@@ -44,6 +55,8 @@ export class CircleProgressBarComponent implements OnInit {
   loadCircunference() {
     let strokeDashoffset = this._circunference - (((this._percentage/100)%100)*this._circunference)
     this._circle.nativeElement.style.strokeDashoffset = `${strokeDashoffset}`
+    console.log(this.calculateRGB());
+    this._circle.nativeElement.style.stroke = this.calculateRGB()
   }
 
   dataLoaded(value: any) {
@@ -56,9 +69,17 @@ export class CircleProgressBarComponent implements OnInit {
   ngAfterViewInit(): void {
     let raio = this._circle.nativeElement.attributes.r.nodeValue
     this._circunference = 2*Math.PI* raio
-    console.log(this._percentage);
     this._circle.nativeElement.style.strokeDasharray = `${this._circunference} ${this._circunference}`
-    this._circle.nativeElement.style.strokeDashoffset  = `${this._circunference}`
-    this._circle.nativeElement.style.stroke = "blue" 
-  } 
+    this._circle.nativeElement.style.strokeDashoffset  = `${this._circunference}`;
+    
+  }
+  
+  calculateRGB() {
+
+    let red = (this.colorGreen.red * (this.percentage/100)) +  ((1 - (this.percentage/100) ) * this.colorRed.red)
+    let green = (this.colorGreen.green * (this.percentage/100)) +  ((1 - (this.percentage/100) ) * this.colorRed.green)
+    let blue = (this.colorGreen.blue * (this.percentage/100)) +  ((1 - (this.percentage/100) ) * this.colorRed.blue)
+    
+    return `rgb(${red},${green},${blue})`
+  }
 }

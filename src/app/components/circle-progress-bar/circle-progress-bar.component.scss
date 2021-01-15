@@ -18,48 +18,26 @@ $circle: (
     width: 100%;
     justify-content: center;
     align-items: center;
-    
-    // .circle-bar {
-    //     display: inline-block;
-    //     position: relative;
-    //     border-radius: 50%;
-    //     box-shadow:  5px 5px 10px color(boxShadowDark-1),
-    //          -5px -5px 10px color(boxShadowLight-1);
 
-        svg.circle-svg {
+    svg.circle-svg {
 
-            circle {
-                opacity: .5;
-                stroke-width: 32px;
-                stroke-opacity: 1;
-                stroke-linecap: round;
-                overflow: hidden;
-                transform: scale(.85) rotateZ(-90deg);
-                transform-origin: 154px 154px;
-                transition: stroke-dashoffset 0.35s ease-in-out;
-                fill: none;
-            }
-
-            text {
-                font-family: cursive;
-                opacity: .5;
-            }
-    
+        circle {
+            stroke-width: 32px;
+            stroke-opacity: 1;
+            stroke-linecap: round;
+            overflow: hidden;
+            transform: scale(.85) rotateZ(-90deg);
+            transform-origin: 154px 154px;
+            transition: stroke-dashoffset 0.35s ease-in-out;
+            fill: none;
         }
-    // }
 
-    // .circle-bar::after {
-    //     content: "";
-    //     width: 80%;
-    //     height: 80%;
-    //     border-radius: 50%;
-    //     top: 50%;
-    //     left: 50%;
-    //     transform: translate(-50%, -50%);
-    //     position: absolute;
-    //     box-shadow: inset 5px 5px 10px color(boxShadowDark-1),
-    //         inset -5px -5px 10px color(boxShadowLight-1);
-    // }
+        text {
+            font-family: cursive;
+            opacity: .5;
+        }
+
+    }
 }
 
 
