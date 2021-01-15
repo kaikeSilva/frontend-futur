@@ -34,6 +34,7 @@ import { LinearProgressBarComponent } from './components/linear-progress-bar/lin
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomeComponent } from './public/home/home.component';
 import { CircleProgressBarModule } from './components/circle-progress-bar/circle-progress-bar.module';
+import { GoalItemCellComponent } from './components/cells/goal-item-cell/goal-item-cell.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +51,7 @@ import { CircleProgressBarModule } from './components/circle-progress-bar/circle
     GoalHeaderComponent,
     CourseCardComponent,
     LinearProgressBarComponent,
+    GoalItemCellComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+<div>
+    <div 
+    fxLayout="column" 
+    fxLayoutAlign="space-between start" 
+    class="p-3 card-shadow background-slide">
+        <span class="h4">{{ goalItem?.course?.name }}</span><br>
+        <div 
+        class="icon-options p-2"
+        fxLayoutGap="5px"
+        fxLayout="row" 
+        fxLayoutAlign="center center">
+            <mat-icon (click)="done()" class="icon-button icon-green">check_circle</mat-icon>
+            <mat-icon class="icon-button icon-light-red">cancel</mat-icon>
+            <mat-icon class="icon-button icon-light-blue">link</mat-icon>
+        </div>
+
+        <div 
+        fxLayoutGap="3px"
+        fxLayout="row" 
+        fxLayoutAlign="start center">
+            <mat-icon>schedule</mat-icon>
+            <span class="">{{ goalItem?.time_formatted }}</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+@import "../../../../colors.scss";
+
+.background-slide {
+    position: relative;
+    z-index: 2;
+
+    .icon-options {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        .icon-button {
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, .05);
+            border-radius: 50%;
+            user-select: none;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, .5),
+            -3px -3px 6px rgba(255, 255, 255, .8);
+            transition: transform ease-in-out .1s;
+        }
+
+        
+
+        .icon-button:active {
+            transform: scale(.8)!important;
+        }
+        
+
+        .icon-button:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+    }
+}
+
+// .background-slide::after {
+//     content: '';
+//     border-radius: 5px;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     bottom: 0;
+//     right: 0;
+//     background-color: red;
+//     transition: transform ease-in-out .3s;
+//     transform: scaleX(0);
+//     transform-origin: top right;
+//     z-index: -1;
+// }
+
+// .background-slide:hover::after {
+//     transform: scaleX(1);
+// }

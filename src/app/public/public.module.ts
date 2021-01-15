@@ -14,6 +14,7 @@ import { CircleProgressBarModule } from '../components/circle-progress-bar/circl
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -42,11 +43,11 @@ const routes: Routes = [
     MatInputModule,
     CircleProgressBarModule,
     HttpClientModule,
-    MatInputModule,
     FlexLayoutModule,
     MatButtonModule,
     FormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatIconModule
   ]
 })
 export class PublicModule { }
