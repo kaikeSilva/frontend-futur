@@ -17,7 +17,15 @@ import { UserService } from './user.service';
 export class DashboardComponent implements OnInit {
 
   user!: User
-  goal!: Goal
+  _goal!: Goal
+
+  set goal(goal: Goal) {
+    this._goal = goal
+  }
+
+  get goal(): Goal {
+    return this._goal
+  }
 
   @ViewChildren("buttonGoal") buttons!: QueryList<ElementRef<HTMLButtonElement>>
 
@@ -26,7 +34,7 @@ export class DashboardComponent implements OnInit {
     private _goalService: GoalsService,
     private _router: Router,
   ) {}
-  
+
   ngOnInit(): void {
     this.getUser()
   }
@@ -34,40 +42,51 @@ export class DashboardComponent implements OnInit {
   ngAfterViewInit(): void {
     this.buttons.changes.subscribe(
       (res) => {
-        this.setWithinFocus(res," after change")    
+        this.setWithinFocus(res," after change")
     })
     this.setWithinFocus(this.buttons," after init")
   }
 
 
   setWithinFocus(c: QueryList<ElementRef>, call: string) {
-    if (this.buttons?.first) {
+    if (
+      this.buttons?.first &&
+      this.goal.id &&
+      +this.buttons.first.nativeElement.id == this.goal.id) {
       this.buttons.first.nativeElement.classList.add('focus')
-    }
+    } else this.goalCliked(this.goal)
   }
 
-  getUser() {
+  goalItemChange(event: number) {
+    this.getUser(event)
+  }
+
+  getUser(goalId: number = 0) {
+
     this._userService.getUser().subscribe(
       (res: any) => {
         this.user = res
-        this.goal = this.user.goals[0]
-        console.log(this.goal);
-
+        if(goalId) {
+          this.user.goals.forEach((goal) => {
+            if(goalId == goal.id) this.goal = goal
+          })
+        } else {
+          this.goal = this.user.goals[0]
+        }
       },
       (err: any) => {console.log(err)}
     )
   }
 
-  goalCliked(goal: any) {
+  goalCliked(goal: Goal) {
     this.buttons.forEach( btn => {
-      if (+btn.nativeElement.id == this.goal.id && this.goal.id != goal.id) {
+      if (+btn.nativeElement.id == goal.id) {
+          btn.nativeElement.classList.add('focus')
+      } else {
         btn.nativeElement.classList.remove('focus')
-      } else if (+btn.nativeElement.id == goal.id) {
-        btn.nativeElement.classList.add('focus')
       }
     })
+
     this.goal = goal
-    
-    console.log(this.goal);
   }
 }

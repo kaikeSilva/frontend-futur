@@ -23,6 +23,7 @@
         fxFlex.xs="75">
             <app-goal-item-cell 
             [goalItem]="goalItem" 
+            (ChangeGoalItemStatusEvent)="goalItemChange($event)"
             ></app-goal-item-cell>
         </div>
     </div>

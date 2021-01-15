@@ -48,4 +48,6 @@
 .focus {
     color: color(darkBackground) !important;
     background-color: color(prymaryDarkBlue) !important;
+    box-shadow: 3px 3px 6px color(boxShadowDark-1),
+        -3px -3px 6px color(boxShadowLight-1);
 }

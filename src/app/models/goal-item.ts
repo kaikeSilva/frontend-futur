@@ -1,6 +1,8 @@
 import { Course } from "./course"
 
 export class GoalItem {
+    id!: number
+    goal_id!: number
     day!: string
     time!: number
     time_formatted!: string
