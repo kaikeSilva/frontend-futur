@@ -2,18 +2,21 @@
     <div class="bg-dark-custom" fxFlex="100" fxLayout="row" fxLayoutAlign="space-between center">
         <!-- TODO: verificar novas cores e formatos para logo ficar diferente do escudo do capitao america -->
         <div fxLayout="row" fxLayoutAlign="center center">
-            <button *ngIf="public" class="brand-custom-button" (click)="navigate('/')">
+            <button *ngIf="public" (click)="navigate('/')">
                 <img src="../../../assets/images/logo.svg" width="50px" height="50px">
             </button>
-            <div>
+            <div class="home-button" (click)="navigate('/')">
                 <div class="relative">
                     <app-circle-progress-bar [percentage]="user?.today_percentage_complete" *ngIf="!public"></app-circle-progress-bar>
                 </div>
             </div>
-            <span class="ml-3">
-                Bem vindo {{user?.name}}<br>
-                14 Jan 2021
-            </span>
+            <div
+            *ngIf="user?.id"
+            class="ml-3 text-container">
+                <span>Bem vindo {{user?.name}}</span><br>
+                <small>{{ user?.week_day }}</small><br>
+                <strong>{{ user?.today }}</strong>
+             </div>
         </div>
         <!-- TODO: Adicionar links ativos  -->
         <div fxLayout="row" fxLayoutGap="10px">
