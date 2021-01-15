@@ -1,0 +1,40 @@
+@import "colors.scss";
+
+.container-shadow {
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px color(boxShadowDark-1),
+        -10px -10px 15px color(boxShadowLight-1);
+}
+
+.navbar-shadow {
+    box-shadow: 2px 2px 4px color(boxShadowDark-1),
+        -2px -2px 4px color(boxShadowLight-1);
+}
+
+.input-shadow {
+    border-radius: 25px;
+    box-shadow: inset 3px 3px 6px color(boxShadowDark-1),
+    inset -3px -3px 6px color(boxShadowLight-1);
+}
+
+.button-shadow-primary-blue {
+    border-radius: 25px;
+    color: color(lightColor);
+    background-color: color(prymaryLightBlue);
+    box-shadow: 3px 3px 6px color(boxShadowDark-1),
+     -3px -3px 6px color(boxShadowLight-1);
+     transition: box-shadow ease-in-out .3s,
+     background-color ease-in-out .3s;
+}
+
+.button-shadow-primary-blue:hover {
+    background-color: color(prymaryDarkBlue);
+    box-shadow: 6px 6px 9px color(boxShadowDark-1),
+     -6px -6px 9px color(boxShadowLight-1);
+}
+
+.card-shadow {
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px color(boxShadowDark-1),
+        -3px -3px 6px color(boxShadowLight-1);
+}

@@ -36,11 +36,33 @@ body {
     outline: none !important;
 }
 
+button {
+    border: none;
+    outline: none;
+    background-color: color(darkBackground);
+}
+
 table {
     width: 80%;
     margin: 0 auto;
 }
 
 .border-red {
-    border: 10px solid #f00 ;
+    border: 2px solid #f00 ;
 } 
+
+.height {
+    height: 250px !important;
+}
+
+.icon-green {
+    color: color(successB);
+}
+
+.icon-light-red {
+    color: color(prymaryLightRed);
+}
+
+.icon-light-blue {
+    color: color(prymaryLightBlue);
+}

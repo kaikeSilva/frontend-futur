@@ -1,16 +1,17 @@
 $colors: (
-    darkBackground: #f0f0f0,
+    darkBackground: #eaeaea,
     primaryColor: aqua,
-    boxShadowLight-1:  #ffffff,
-    boxShadowDark-1: #00000080,
+    lightColor: #fff,
+    boxShadowLight-1:  #fffffff3,
+    boxShadowDark-1: #00000050,
     fontColorDark: #080808,
-    green: #28a745,
+    prymaryLightRed: #f72020,
+    prymaryDarkRed: #950505,
+    prymaryLightBlue: #1f6cc4,
+    prymaryDarkBlue: #113c6d,
+    successB: #5cb85c,
 );
 
 @function color ($color-name) {
     @return map-get($colors, $color-name)
-}
-
-.border-red {
-    border: 2px solid red;
 }
