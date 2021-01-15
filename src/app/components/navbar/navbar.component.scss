@@ -1,4 +1,6 @@
 @import "../../../colors.scss";
+@import "../../../shadows.scss";
+
 .bg-dark-custom {
     background-color: color(darkBackground) ;
 }
@@ -10,9 +12,9 @@ button {
 }
 
 .padding-custom { 
+    max-height: 15vh;
+    height: 15vh;
     padding: 10px 20px;
-    box-shadow:  3px -3px 9px color(boxShadowDark-1),
-             -3px 3px 9px #ffffff;
 }
 
 
@@ -28,20 +30,20 @@ button.link-button, .register, .logout {
 
 button.link-button:hover {
     border-color: transparent;
-    box-shadow:  3px -3px 9px #ffffff,
-        -3px 3px 9px #ffffff
+    box-shadow:  5px 5px 9px color(boxShadowLight-1),
+        -5px -5px 9px color(boxShadowLight-1)
 }
 
 div {
     .register, .logout {
         border: none;
         transition: box-shadow ease-in-out .5s;
-        box-shadow:  3px -3px 9px color(boxShadowDark-1),
-             -3px 3px 9px #ffffff;
+        box-shadow:  5px 5px 9px color(boxShadowDark-1),
+             -5px -5px 9px color(boxShadowLight-1);
     }
 
     .register:hover, .logout:hover {
-        box-shadow:  5px -5px 12px color(boxShadowDark-1),
-             -5px 5px 12px #ffffff;
+        box-shadow:  5px 5px 12px color(boxShadowDark-1),
+             -5px -5px 12px color(boxShadowLight-1);
     }
 }

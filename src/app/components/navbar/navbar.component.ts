@@ -12,6 +12,9 @@ export class NavbarComponent implements OnInit {
   @Input()
   public: boolean = true;
 
+  @Input()
+  user: string = "";
+
   constructor(
     private _authService: AuthenticationService,
     private _router: Router,
