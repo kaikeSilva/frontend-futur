@@ -27,6 +27,7 @@
      background-color ease-in-out .3s;
 }
 
+
 .button-shadow-primary-blue:hover {
     background-color: color(prymaryDarkBlue);
     box-shadow: 6px 6px 9px color(boxShadowDark-1),
@@ -37,4 +38,22 @@
     border-radius: 5px;
     box-shadow: 3px 3px 6px color(boxShadowDark-1),
         -3px -3px 6px color(boxShadowLight-1);
+}
+
+.icon-button-shadow {
+    transition: box-shadow ease-in-out 1s;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, .5),
+                    -3px -3px 6px rgba(255, 255, 255, .8);
+}
+
+@mixin iconButtonShadowBlue {
+    transition: box-shadow ease-in-out 1s;
+    box-shadow: 3px 3px 6px color(prymaryDarkBlue),
+                    -3px -3px 6px color(prymaryLighterBlue);
+}
+
+@mixin iconButtonShadow {
+    transition: box-shadow ease-in-out 1s;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, .5),
+                    -3px -3px 6px rgba(255, 255, 255, .8);
 }
