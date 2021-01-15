@@ -16,6 +16,7 @@ export class GoalItemCellComponent implements OnInit {
   }
 
   done() {
+    // TODO: adicionar ação para item concluido, desfeito e navegar para recurso 
     console.log("prontp");
   }
 }
