@@ -1,48 +1,65 @@
-<h1 class="text-center">Registrar</h1>
+<div fxLayout="row" fxLayoutAlign="center center" class="body-container">
+    <div 
+    fxFlex="50"
+    fxFlex.gt-sm="30" 
+    fxLayout="column" 
+    fxLayoutAlign="space-around" 
+    class="input-form-container container-shadow">
+        <h1 class="text-center">Registrar</h1>
 
-<form [formGroup]="form" (submit)="submit()"  class="form mt-3">
-    <div class="form-group">
-        <input 
-        formControlName="name" 
-        type="name" 
-        class="form-control" 
-        placeholder="Nome">
-        
-        <small *ngIf="name?.errors?.required && (name?.dirty || name?.touched)" class="text-danger">O nome é obrigatório.</small>
+        <form [formGroup]="form" (submit)="submit()"  class="form mt-3">
+            <div class="d-flex mt-3 px-3 py-2 input-shadow">
+                <mat-icon>account_circle</mat-icon>
+                <input 
+                formControlName="name" 
+                type="name" 
+                class="w-100 ml-1"
+                placeholder="Nome">                
+            </div>
+            <small *ngIf="name?.errors?.required && (name?.dirty || name?.touched)" class="text-danger">O nome é obrigatório.</small>
+
+            <div class="d-flex mt-3 px-3 py-2 input-shadow">
+                <mat-icon>email</mat-icon>
+                <input 
+                formControlName="email"
+                (input)="emailChange()" 
+                type="email" 
+                 class="w-100 ml-1"   
+                placeholder="Email">
+
+            </div>
+
+            <small *ngIf="email?.errors?.required && (email?.dirty || email?.touched)" class="text-danger">O nome é obrigatório.</small>
+            <small *ngIf="email?.errors?.email && (email?.dirty || email?.touched)" class="text-danger">O email deve ser um email valido.</small>
+            <small *ngIf="duplicatedEmail" class="text-danger">Esse email ja esta cadastrado em uma conta.</small>
+
+
+            <div class="d-flex mt-3 px-3 py-2 input-shadow">
+                <mat-icon>vpn_key</mat-icon>
+                <input 
+                formControlName="password" 
+                type="password" 
+                 class="w-100 ml-1"   
+                placeholder="Password">
+
+            </div>
+            <small *ngIf="password?.errors?.required && (password?.dirty || password?.touched)" class="text-danger">A senha é obrigatória.</small>
+
+            <div class="d-flex mt-3 px-3 py-2 input-shadow">
+                <mat-icon>vpn_key</mat-icon>
+                <input 
+                formControlName="password_confirm" 
+                type="password" 
+                 class="w-100 ml-1"   
+                placeholder="Confirmar password">
+
+            </div>
+
+            <small *ngIf="password_confirm?.errors?.required && (password_confirm?.dirty || password_confirm?.touched)" class="text-danger">É preciso confirmar a senha.</small>
+            <small *ngIf="form?.errors?.equalConfirm && (password_confirm?.dirty  || password_confirm?.touched)" class="text-danger">O valor não é igual ao da senha fornecida.</small>
+
+            <button [disabled]="!form.valid" 
+            class="w-100 p-2 mt-3 button-shadow-primary-blue">Registrar</button>
+        </form>
     </div>
-
-    <div class="form-group">
-        <input 
-        formControlName="email"
-        (input)="emailChange()" 
-        type="email" 
-        class="form-control" 
-        placeholder="Email">
-
-        <small *ngIf="email?.errors?.required && (email?.dirty || email?.touched)" class="text-danger">O nome é obrigatório.</small>
-        <small *ngIf="email?.errors?.email && (email?.dirty || email?.touched)" class="text-danger">O email deve ser um email valido.</small>
-        <small *ngIf="duplicatedEmail" class="text-danger">Esse email ja esta cadastrado em uma conta.</small>
-    </div>
-
-    <div class="form-group">
-        <input 
-        formControlName="password" 
-        type="password" 
-        class="form-control" 
-        placeholder="Password">
-
-        <small *ngIf="password?.errors?.required && (password?.dirty || password?.touched)" class="text-danger">A senha é obrigatória.</small>
-    </div>
-
-    <div class="form-group">
-        <input 
-        formControlName="password_confirm" 
-        type="password" 
-        class="form-control" 
-        placeholder="Confirmar password">
-
-        <small *ngIf="password_confirm?.errors?.required && (password_confirm?.dirty || password_confirm?.touched)" class="text-danger">É preciso confirmar a senha.</small>
-        <small *ngIf="form?.errors?.equalConfirm && (password_confirm?.dirty  || password_confirm?.touched)" class="text-danger">O valor não é igual ao da senha fornecida.</small>
-    </div>
-    <button [disabled]="!form.valid" class="btn btn-lg btn-primary btn-block">Registrar</button>
-</form>
+</div>

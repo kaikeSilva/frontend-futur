@@ -1,23 +1,44 @@
-<h1 class="text-center">Log in</h1>
+<div fxLayout="row" fxLayoutAlign="center center" class="body-container">
+    <div 
+    fxFlex="50"
+    fxFlex.gt-sm="30" 
+    fxLayout="column" 
+    fxLayoutAlign="space-around" 
+    class="input-form-container container-shadow">
+        <h1 class="text-center">Log in</h1>
 
-<form [formGroup]="form" (submit)="submit()"  class="form mt-3">
-    <div class="form-group">
-        <input 
-        formControlName="email" 
-        type="email" 
-        class="form-control" 
-        placeholder="Email">
-        <small *ngIf="email?.errors?.required && (email?.dirty || email?.touched)" class="text-danger">O Email é obrigatório.</small>
-        <small *ngIf="email?.errors?.email && (email?.dirty || email?.touched)" class="text-danger">O Email deve ter o formato de email.</small>
-    </div>
+        <div class="form">
+            <form 
+            [formGroup]="form" 
+            (submit)="submit()" 
+            class="">
+                <div class="d-flex px-3 py-2 input-shadow">
+                    <mat-icon>email</mat-icon>
+                    <input
+                    class="w-100 ml-1"  
+                    formControlName="email" 
+                    type="email" 
+                    placeholder="Email">
+                </div>
+                <small *ngIf="email?.errors?.required && (email?.dirty || email?.touched )" class="text-danger">O Email é obrigatório.</small>
+                <small *ngIf="email?.errors?.email && (email?.dirty || email?.touched)" class="text-danger">O Email deve ter o formato de email.</small>
 
-    <div class="form-group">
-        <input 
-        formControlName="password" 
-        type="password" 
-        class="form-control" 
-        placeholder="Password">
-        <small *ngIf="password?.errors?.required && (password?.dirty || password?.touched)" class="text-danger">O password é obrigatório.</small>
+    
+                <div class="d-flex mt-3 px-3 py-2 input-shadow">
+                    <mat-icon>vpn_key</mat-icon>
+                    <input
+                    class="w-100 ml-1" 
+                    formControlName="password" 
+                    type="password" 
+                    placeholder="Password">
+                </div>
+                <small *ngIf="password?.errors?.required && (password?.dirty || password?.touched)" class="text-danger">O password é obrigatório.</small>
+
+    
+                <button 
+                [disabled]="!form.valid" 
+                class="w-100 p-2 mt-3 button-shadow-primary-blue">Login</button>
+            </form>
+        </div>
     </div>
-    <button [disabled]="!form.valid" class="btn btn-lg btn-primary btn-block">Login</button>
-</form>
+</div>

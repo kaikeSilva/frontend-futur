@@ -1,4 +1,20 @@
-.form {
-    width: 300px;
-    margin: 0 auto;
+@import "../../../shadows.scss";
+
+.body-container {
+    width: 100vw;
+    height: 85vh;
+
+    .input-form-container {
+        padding: 20px;
+        height: 70%;
+
+        .form {
+
+            input {
+                border: none;
+                outline: none;
+                background: none;
+            }
+        }
+    }
 }

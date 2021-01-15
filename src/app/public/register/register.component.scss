@@ -1,0 +1,18 @@
+.body-container {
+    width: 100vw;
+    height: 85vh;
+
+    .input-form-container {
+        padding: 20px;
+        height: auto;
+
+        .form {
+
+            input {
+                border: none;
+                outline: none;
+                background: none;
+            }
+        }
+    }
+}
