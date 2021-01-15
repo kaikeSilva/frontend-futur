@@ -2,12 +2,22 @@
 <div class="d-flex">
     <div #scrollItems 
     class="dayly-items-scroll w-25 pr-2 navbar-shadow rounded-bottom">
-        <button 
-        #buttonGoal
+        
+        <div
+        #buttonGoal 
+        class="text-left w-100 mb-2 goal-item-button" 
         id="{{goal.id}}" 
         (click)="goalCliked(goal)" 
-        class="p-3 text-left w-100 mb-2 goal-item-button" 
-        *ngFor="let goal of user?.goals" > {{ goal.title }} </button>
+        *ngFor="let goal of user?.goals">
+            <div
+            class="p-3 content-button " >
+                <span fxFlex="60">{{ goal.title }}</span> 
+                <mat-icon *ngIf="goal.today_status" class="status-icon icon-green">done</mat-icon>
+                <mat-icon *ngIf="!goal.today_status" class="status-icon icon-light-red">info</mat-icon>
+            </div>    
+            
+        </div>
+        
     </div>
     <div 
     class="p-3" 

@@ -7,6 +7,7 @@ export class Goal {
     title!: string
     description!: string
     total_minutes!: number
+    today_status!: number
     percentage_complete!: number
     today_percentage_complete!: number
     days_limit!: number

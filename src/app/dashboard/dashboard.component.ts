@@ -79,6 +79,7 @@ export class DashboardComponent implements OnInit {
   }
 
   goalCliked(goal: Goal) {
+    console.log("goal", goal);
     this.buttons.forEach( btn => {
       if (+btn.nativeElement.id == goal.id) {
           btn.nativeElement.classList.add('focus')

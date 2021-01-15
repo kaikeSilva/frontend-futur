@@ -46,6 +46,12 @@
                     -3px -3px 6px rgba(255, 255, 255, .8);
 }
 
+.icon-status-shadow {
+    background: linear-gradient(145deg,  color(prymaryDarkBlue),  color(prymaryLighterBlue));
+    box-shadow:  3px 3px 6px color(prymaryDarkBlue),
+             -3px -3px 6px color(prymaryLighterBlue);
+}
+
 @mixin iconButtonShadowBlue {
     transition: box-shadow ease-in-out 1s;
     box-shadow: 3px 3px 6px color(prymaryDarkBlue),
