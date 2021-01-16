@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
 
   user: User = new User()
   _goal!: Goal
+  date: Date = new Date()
 
   set goal(goal: Goal) {
     this._goal = goal
@@ -36,6 +37,11 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getUser()
+  }
+
+  dateChangeEventHandle(event: any) {
+    this.date = new Date(event.date)
     this.getUser()
   }
 
@@ -62,8 +68,10 @@ export class DashboardComponent implements OnInit {
   }
 
   getUser(goalId: number = 0) {
+    
+    let data = this.formatDate(this.date) 
 
-    this._userService.getUser().subscribe(
+    this._userService.getUser(data).subscribe(
       (res: any) => {
         this.user = res
         if(goalId) {
@@ -89,5 +97,14 @@ export class DashboardComponent implements OnInit {
     })
 
     this.goal = goal
+  }
+
+  formatDate(date: Date = new Date()) {
+    console.log(date);
+    let month = date.getMonth()+1;
+    let year = date.getFullYear();
+    let day = date.getDate();
+    console.log(date);
+    return day+'-'+month + '-' + year;
   }
 }

@@ -56,3 +56,27 @@ div {
 .home-button:hover {
     cursor: pointer;
 }
+
+
+
+:host ::ng-deep.mat-datepicker-toggle {
+
+    .icon-button {
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 50% !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform ease-in-out .05s !important;
+    }
+    
+    .icon-button:active {
+        transform: scale(.8) !important;
+    }
+    
+    .icon-button:hover {
+        cursor: pointer;
+        transform: scale(1.2) ;
+    }
+}

@@ -35,6 +35,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomeComponent } from './public/home/home.component';
 import { CircleProgressBarModule } from './components/circle-progress-bar/circle-progress-bar.module';
 import { GoalItemCellComponent } from './components/cells/goal-item-cell/goal-item-cell.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { DATE_FORMATS } from './models/date-formats';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,8 +75,12 @@ import { GoalItemCellComponent } from './components/cells/goal-item-cell/goal-it
     FlexLayoutModule,
     CircleProgressBarModule,
     MatToolbarModule,
+    MatDatepickerModule,
+    MatNativeDateModule 
   ],
   providers: [ 
+    MatDatepickerModule,
+    {provide: MAT_DATE_FORMATS, useValue: DATE_FORMATS},
     {
       provide: MAT_DIALOG_DEFAULT_OPTIONS, 
       useValue: {hasBackdrop: false}

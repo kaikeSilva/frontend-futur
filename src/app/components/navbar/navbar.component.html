@@ -10,14 +10,35 @@
                     <app-circle-progress-bar [percentage]="user?.today_percentage_complete" *ngIf="!public"></app-circle-progress-bar>
                 </div>
             </div>
+
             <div
             *ngIf="user?.id"
-            class="ml-3 text-container">
+            class="ml-3 text-container ">
+
                 <span>Bem vindo {{user?.name}}</span><br>
                 <small>{{ user?.week_day }}</small><br>
-                <strong>{{ user?.today }}</strong>
+                <div fxLayout="row"
+                fxLayoutGap="7px"
+                fxLayoutAlign="start center">
+                    <strong>{{ user?.today }}</strong>
+                    <div class=" p-0">
+                        <form [formGroup]="form"> 
+                            <input formControlName="date" class="d-none"   matInput [matDatepicker]="picker">
+                            <mat-datepicker-toggle 
+                            [disabled]="loading"
+                            matSuffix 
+                            [for]="picker">
+                                <mat-icon *ngIf="!loading" class="icon-button-shadow icon-button icon-green"  matDatepickerToggleIcon>today</mat-icon>
+                                <mat-icon *ngIf="loading" class="icon-button icon-green icon-loading" matDatepickerToggleIcon>cached</mat-icon>
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </form>
+                    </div>
+                </div>
              </div>
         </div>
+
+        
         <!-- TODO: Adicionar links ativos  -->
         <div fxLayout="row" fxLayoutGap="10px">
             <button class="link-button" (click)="navigate('')"*ngIf="public"  (click)="navigate('/login')">Login</button>
