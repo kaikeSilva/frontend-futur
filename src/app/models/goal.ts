@@ -8,6 +8,7 @@ export class Goal {
     description!: string
     total_minutes!: number
     today_status!: number
+    late!: boolean
     percentage_complete!: number
     today_percentage_complete!: number
     days_limit!: number

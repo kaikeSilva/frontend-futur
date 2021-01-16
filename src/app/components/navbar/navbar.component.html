@@ -2,10 +2,10 @@
     <div class="bg-dark-custom" fxFlex="100" fxLayout="row" fxLayoutAlign="space-between center">
         <!-- TODO: verificar novas cores e formatos para logo ficar diferente do escudo do capitao america -->
         <div fxLayout="row" fxLayoutAlign="center center">
-            <button *ngIf="public" (click)="navigate('/')">
+            <button *ngIf="public || !user?.id" (click)="navigate('/')">
                 <img src="../../../assets/images/logo.svg" width="50px" height="50px">
             </button>
-            <div class="home-button" (click)="navigate('/')">
+            <div [ngClass]="{'d-none': !user?.id}"  class="home-button" (click)="navigate('/')">
                 <div class="relative">
                     <app-circle-progress-bar [percentage]="user?.today_percentage_complete" *ngIf="!public"></app-circle-progress-bar>
                 </div>
@@ -21,7 +21,7 @@
                 fxLayoutGap="7px"
                 fxLayoutAlign="start center">
                     <strong>{{ user?.today }}</strong>
-                    <div class=" p-0">
+                    <div class=" p-0 mb-2">
                         <form [formGroup]="form"> 
                             <input formControlName="date" class="d-none"   matInput [matDatepicker]="picker">
                             <mat-datepicker-toggle 

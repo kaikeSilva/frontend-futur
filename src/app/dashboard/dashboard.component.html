@@ -4,26 +4,30 @@
 [public]="false"></app-navbar>
 <div class="d-flex">
     <div #scrollItems 
-    class="dayly-items-scroll w-25 pr-2 navbar-shadow rounded-bottom">
+    class="dayly-items-scroll w-20 pr-2 navbar-shadow rounded-bottom">
         
         <div
         #buttonGoal 
-        class="text-left w-100 mb-2 goal-item-button" 
+        class="text-left w-100 mb-2 goal-item-button " 
         id="{{goal.id}}" 
         (click)="goalCliked(goal)" 
         *ngFor="let goal of user?.goals">
             <div
             class="p-3 content-button " >
                 <span fxFlex="60">{{ goal.title }}</span> 
-                <mat-icon *ngIf="goal.today_status" class="status-icon icon-green">done</mat-icon>
-                <mat-icon *ngIf="!goal.today_status" class="status-icon icon-light-red">info</mat-icon>
+                <div class="status-icon-box">
+                    <mat-icon *ngIf="goal.today_status" matTooltip="tarefa diaria concluida" class="status-icon icon-green">done</mat-icon>
+                    <mat-icon *ngIf="!goal.today_status" matTooltip="itens para concluir" class="status-icon icon-warning">info</mat-icon>
+                    <mat-icon *ngIf="goal.late" matTooltip="itens em atraso" class=" status-icon icon-light-red">info</mat-icon>
+                </div>
             </div>    
             
         </div>
         
     </div>
+
     <div 
-    class="p-3" 
+    class="p-3 dayly-items-scroll" 
     fxFlex
     fxLayout="row wrap"
     fxLayoutAlign="start start"

@@ -6,7 +6,6 @@
     padding: 5px;
     overflow: hidden;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory;
 
     div {
         scroll-snap-align: start;
@@ -53,9 +52,12 @@
 }
 
 .status-icon {
-    top: 10%;
-    right: 5%;
     border-radius: 50%;
+}
+
+.status-icon-box {
+    top: 5px;
+    right: 5px;
     position: absolute;
 }
 

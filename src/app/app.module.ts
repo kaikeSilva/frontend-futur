@@ -38,6 +38,7 @@ import { GoalItemCellComponent } from './components/cells/goal-item-cell/goal-it
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { DATE_FORMATS } from './models/date-formats';
+import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +77,8 @@ import { DATE_FORMATS } from './models/date-formats';
     CircleProgressBarModule,
     MatToolbarModule,
     MatDatepickerModule,
-    MatNativeDateModule 
+    MatNativeDateModule,
+    MatTooltipModule 
   ],
   providers: [ 
     MatDatepickerModule,
