@@ -6,7 +6,7 @@ export class Goal {
     user_id!: number
     title!: string
     description!: string
-    total_minutes!: number
+    total_time!: number
     today_status!: number
     late!: boolean
     percentage_complete!: number

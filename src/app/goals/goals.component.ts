@@ -30,6 +30,7 @@ export class GoalsComponent implements OnInit {
     this._goalService.all().subscribe(
       (result: any) => {
         this.goals = result
+        console.log(this.goals);
       },
       (error) => console.log(error)
     )
