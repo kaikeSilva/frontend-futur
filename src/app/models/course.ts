@@ -9,6 +9,7 @@ export class Course implements TableItem, Deserializable {
     userId!: string
     name!: string
     description!: string
+    time_formatted!: string
     resource_place!: string
     duration_minutes!: string
     _pivot!: CourseGoal

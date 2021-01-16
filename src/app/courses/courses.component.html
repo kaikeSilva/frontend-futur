@@ -1,34 +1,54 @@
 <app-navbar [public]="false"></app-navbar>
 
-<div class="container p-3" fxLayoutAlign="end">
-  <button  
-  mat-raised-button 
-  (click)="create()"> 
-    <mat-icon>add</mat-icon> Criar
-  </button>
+<div
+fxLayout="row"
+fxlayoutAlign="space-between start" 
+class="items-scroll py-2">
+
+  <table class="navbar-shadow rounded" mat-table [dataSource]="courses">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> id </th>
+      <td mat-cell *matCellDef="let course"> {{course.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Descrição </th>
+      <td mat-cell *matCellDef="let course"> {{course.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Nome </th>
+      <td mat-cell *matCellDef="let course"> {{course.description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="duration_minutes">
+      <th mat-header-cell *matHeaderCellDef> Duração </th>
+      <td mat-cell *matCellDef="let course"> {{course.time_formatted}} </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>
+        <div class="container px-3" fxLayout="row" fxLayoutAlign="end center">
+          <button  
+          mat-raised-button 
+          (click)="create()"> 
+            <mat-icon>add</mat-icon> Criar
+          </button>
+        </div>
+      </th>
+      <td mat-cell *matCellDef="let course"> 
+        <div>
+          <div fxFlex
+          fxLayout="row"
+          fxLayoutAlign="end center">
+            <button (click)="delete(course)" mat-icon-button><mat-icon class="color-danger">delete</mat-icon></button>
+            <button (click)="update(course)" mat-icon-button><mat-icon class="color-secondary">edit</mat-icon></button>
+            <button (click)="navigateResource(course?.resource_place)" mat-icon-button ><mat-icon class="icon-light-blue">link</mat-icon></button>
+  
+          </div>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let course; columns: displayedColumns"></tr>
+  </table>  
+
+
 </div>
-
-<table mat-table [dataSource]="courses">
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> id </th>
-    <td mat-cell *matCellDef="let course"> {{course.id}} </td>
-  </ng-container>
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Nome </th>
-    <td mat-cell *matCellDef="let course"> {{course.name}} </td>
-  </ng-container>
-  <ng-container matColumnDef="duration_minutes">
-    <th mat-header-cell *matHeaderCellDef> Duração </th>
-    <td mat-cell *matCellDef="let course"> {{course.duration_minutes}} </td>
-  </ng-container>
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> </th>
-    <td mat-cell *matCellDef="let course"> 
-      <button (click)="delete(course)" mat-icon-button><mat-icon class="color-danger">delete</mat-icon></button>
-      <button (click)="update(course)" mat-icon-button><mat-icon class="color-secondary">edit</mat-icon></button>
-    </td>
-  </ng-container>
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let course; columns: displayedColumns"></tr>
-</table>
-

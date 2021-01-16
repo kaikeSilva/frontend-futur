@@ -43,7 +43,7 @@
         <div fxLayout="row" fxLayoutGap="10px">
             <button class="link-button" (click)="navigate('')"*ngIf="public"  (click)="navigate('/login')">Login</button>
             <button class="register" *ngIf="public" (click)="navigate('/register')">Registrar</button>
-            <button class="link-button" *ngIf="!public" (click)="navigate('/courses')">Cursos</button>
+            <button class="link-button" *ngIf="!public" (click)="navigate('/courses')">Atividades</button>
             <button class="link-button" *ngIf="!public"  (click)="navigate('/goals')">Metas</button>
             <button class="logout" *ngIf="!public" (click)="logout()">Logout</button>
         </div>

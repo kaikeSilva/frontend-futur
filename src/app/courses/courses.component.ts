@@ -17,7 +17,7 @@ import { CourseService } from './course.service';
 export class CoursesComponent implements OnInit {
   courses: BehaviorSubject<Course[]> = new BehaviorSubject<Course[]>([]);
   @ViewChildren(MatTable) matTables! : QueryList<MatTable<Course[]>>;
-  displayedColumns: Array<string> = ['id', 'name', 'duration_minutes','actions']
+  displayedColumns: Array<string> = ['id', 'name','description', 'duration_minutes','actions']
  
 
   constructor(
@@ -27,6 +27,24 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCourses()
+  }
+
+  navigateResource(urlSite: any) {
+    if (urlSite) {
+      let url = ''
+      if (!/^http[s]?:\/\//.test(urlSite)) {
+        url += 'http://';
+      }
+      console.log(urlSite);
+      url += urlSite
+      console.log(urlSite);
+
+      const link = document.createElement('a');
+      link.target = '_blank';
+      link.href = url;
+      link.setAttribute('visibility', 'hidden');
+      link.click();
+    }
   }
 
   create() {
@@ -55,7 +73,7 @@ export class CoursesComponent implements OnInit {
         disableClose: false
       })
     
-    dialogRef.componentInstance.confirmMessage = "tem certeza que deseja remover esse curso?"
+    dialogRef.componentInstance.confirmMessage = "tem certeza que deseja remover essa atividade?"
     dialogRef.afterClosed()
     .subscribe(
       (result) => {

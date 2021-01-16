@@ -12,7 +12,7 @@ import { CourseService } from '../course.service';
 export class CourseFormComponent implements OnInit {
   form!: FormGroup
   course!: Course 
-  title: string = "Novo Curso"
+  title: string = "Nova Atividade"
   creating: boolean = true
 
   constructor(
@@ -23,7 +23,7 @@ export class CourseFormComponent implements OnInit {
   ) { 
     this.course = this?.data?.course
     if (this.course?.id) this.creating = false
-    this.title = this.data? "Editar curso": this.title
+    this.title = this.data? "Editar Atividade": this.title
   }
 
   ngOnInit(): void {
