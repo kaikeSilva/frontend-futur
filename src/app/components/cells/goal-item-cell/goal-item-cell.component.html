@@ -13,7 +13,7 @@
             fxLayoutAlign="center center ">
                 <mat-icon *ngIf="!goalItem?.status" (click)="done('done')" class="icon-button icon-green">check_circle</mat-icon>
                 <mat-icon *ngIf="goalItem?.status" (click)="done('undone')" class="icon-button icon-light-red">cancel</mat-icon>
-                <mat-icon class="icon-button icon-light-blue">link</mat-icon>
+                <mat-icon (click)="navigateResource(goalItem?.course?.resource_place)" class="icon-button icon-light-blue">link</mat-icon>
             </div>
 
             <div 

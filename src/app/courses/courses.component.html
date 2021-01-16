@@ -1,11 +1,13 @@
 <app-navbar [public]="false"></app-navbar>
-<div class="container px-5" fxLayoutAlign="end">
+
+<div class="container p-3" fxLayoutAlign="end">
   <button  
   mat-raised-button 
   (click)="create()"> 
     <mat-icon>add</mat-icon> Criar
   </button>
 </div>
+
 <table mat-table [dataSource]="courses">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> id </th>

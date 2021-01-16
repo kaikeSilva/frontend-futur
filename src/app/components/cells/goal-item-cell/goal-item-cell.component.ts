@@ -38,6 +38,24 @@ export class GoalItemCellComponent implements OnInit {
   ngAfterViewInit(): void {
   }
 
+  navigateResource(urlSite: any) {
+    if (urlSite) {
+      let url = ''
+      if (!/^http[s]?:\/\//.test(urlSite)) {
+        url += 'http://';
+      }
+      console.log(urlSite);
+      url += urlSite
+      console.log(urlSite);
+
+      const link = document.createElement('a');
+      link.target = '_blank';
+      link.href = url;
+      link.setAttribute('visibility', 'hidden');
+      link.click();
+    }
+  }
+
   done(action: string) {
     // TODO: adicionar ação para item concluido, desfeito e navegar para recurso
     this.loading = true; 
