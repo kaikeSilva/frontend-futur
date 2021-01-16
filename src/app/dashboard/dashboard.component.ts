@@ -16,7 +16,7 @@ import { UserService } from './user.service';
 })
 export class DashboardComponent implements OnInit {
 
-  user!: User
+  user: User = new User()
   _goal!: Goal
 
   set goal(goal: Goal) {

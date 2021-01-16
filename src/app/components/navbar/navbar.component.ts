@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 import { AuthenticationService } from 'src/app/public/authentication.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class NavbarComponent implements OnInit {
   public: boolean = true;
 
   @Input()
-  user: string = "";
+  user!: User;
 
   constructor(
     private _authService: AuthenticationService,

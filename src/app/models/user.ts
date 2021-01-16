@@ -8,7 +8,7 @@ export class User implements TableItem, Deserializable {
     name!: string
     email!: string
     week_day!: string
-    day!: string
+    today!: string
     today_percentage_complete!: number
     _courses!: Course[]
     _goals!: Goal[]

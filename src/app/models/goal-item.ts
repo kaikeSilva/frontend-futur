@@ -5,6 +5,9 @@ export class GoalItem {
     goal_id!: number
     day!: string
     time!: number
+    late!: boolean
+    week_day_formatted!: string
+    day_formatted!: string
     time_formatted!: string
     status!: number
     created_at!: string

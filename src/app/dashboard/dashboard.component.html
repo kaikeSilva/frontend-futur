@@ -1,4 +1,4 @@
-<app-navbar [user]="user || '' " [public]="false"></app-navbar>
+<app-navbar [user]="user" [public]="false"></app-navbar>
 <div class="d-flex">
     <div #scrollItems 
     class="dayly-items-scroll w-25 pr-2 navbar-shadow rounded-bottom">
@@ -25,8 +25,18 @@
     fxLayout="row wrap"
     fxLayoutAlign="start start"
     fxLayoutGap="20px">
-        <!-- TODO: Aparecer no dashboard apenas os goals com itens para o dia -->
         <div *ngFor="let goalItem of goal?.goal_items_for_today " 
+        class="mb-3" 
+        fxFlex="30"
+        fxFlex.sm="45"
+        fxFlex.xs="75">
+            <app-goal-item-cell 
+            [goalItem]="goalItem" 
+            (ChangeGoalItemStatusEvent)="goalItemChange($event)"
+            ></app-goal-item-cell>
+        </div>
+
+        <div *ngFor="let goalItem of goal?.late_goal_items_for_today " 
         class="mb-3" 
         fxFlex="30"
         fxFlex.sm="45"

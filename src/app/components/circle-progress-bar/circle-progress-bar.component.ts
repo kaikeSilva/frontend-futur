@@ -25,8 +25,8 @@ export class CircleProgressBarComponent implements OnInit {
 
 
   @Input()
-  public set percentage(v : number) {
-    this._percentage = v;
+  public set percentage(v : number | undefined) {
+    this._percentage = v ?? 0;
     this.dataLoaded(v)
   }
 
@@ -76,10 +76,13 @@ export class CircleProgressBarComponent implements OnInit {
   
   calculateRGB() {
 
-    let red = (this.colorGreen.red * (this.percentage/100)) +  ((1 - (this.percentage/100) ) * this.colorRed.red)
-    let green = (this.colorGreen.green * (this.percentage/100)) +  ((1 - (this.percentage/100) ) * this.colorRed.green)
-    let blue = (this.colorGreen.blue * (this.percentage/100)) +  ((1 - (this.percentage/100) ) * this.colorRed.blue)
+    if (this.percentage) {
+      let red = (this.colorGreen.red * (this.percentage/100)) +  ((1 - (this.percentage/100) ) * this.colorRed.red)
+      let green = (this.colorGreen.green * (this.percentage/100)) +  ((1 - (this.percentage/100) ) * this.colorRed.green)
+      let blue = (this.colorGreen.blue * (this.percentage/100)) +  ((1 - (this.percentage/100) ) * this.colorRed.blue)
+      return `rgb(${red},${green},${blue})`  
+    }
     
-    return `rgb(${red},${green},${blue})`
+    return `rgb(${this.colorGreen.red},${this.colorGreen.green},${this.colorGreen.blue})`
   }
 }

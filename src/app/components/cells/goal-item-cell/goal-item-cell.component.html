@@ -26,11 +26,17 @@
             </div>
     
             <div 
+            class="w-100"
             fxLayoutGap="3px"
             fxLayout="row" 
-            fxLayoutAlign="start center">
-                <mat-icon class="icon">schedule</mat-icon>
-                <span class="">{{ goalItem?.time_formatted }}</span>
+            fxLayoutAlign="space-between center">
+                <span [ngClass]="{'font-weight-bold icon-light-red': goalItem?.late}">{{ goalItem?.day_formatted }}</span>
+                <div fxLayoutGap="3px"
+                fxLayout="row" 
+                fxLayoutAlign="start center">
+                    <mat-icon class="icon">schedule</mat-icon>
+                    <span class="">{{ goalItem?.time_formatted }}</span>
+                </div>
             </div>
         </div>
     </div>

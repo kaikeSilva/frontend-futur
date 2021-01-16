@@ -15,6 +15,7 @@ export class Goal {
     _goal_items!: GoalItem[]
     goal_items_per_day!: any[]
     _goal_items_for_today!: any[]
+    _late_goal_items_for_today!: any[]
 
     public static parseArray(jsonGoals: any[]) { 
         return jsonGoals.map((goal: any) => {
@@ -50,6 +51,16 @@ export class Goal {
 
     public get goal_items_for_today() {
         return this._goal_items_for_today
+    }
+
+    public set late_goal_items_for_today (items: any[]) {
+        this._late_goal_items_for_today = items.map((items: any) => {
+            return new GoalItem().deserialize(items)
+        })
+    }
+
+    public get late_goal_items_for_today() {
+        return this._late_goal_items_for_today
     }
 
 
