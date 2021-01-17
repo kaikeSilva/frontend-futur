@@ -68,7 +68,6 @@ export class GoalsFormComponent implements OnInit {
 
   create() {
     const formData =  this.form.getRawValue()
-    console.log(this.form.valid);
     this._goalService.store(formData).subscribe(
       (data) => {
         this.form.reset()
@@ -81,7 +80,6 @@ export class GoalsFormComponent implements OnInit {
   }
 
   update() {
-    console.log("dentro de update");
     const formData =  this.form.getRawValue()
 
     this._goalService.update(formData, this.goal.id).subscribe(

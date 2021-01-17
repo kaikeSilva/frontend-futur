@@ -35,9 +35,7 @@ export class CoursesComponent implements OnInit {
       if (!/^http[s]?:\/\//.test(urlSite)) {
         url += 'http://';
       }
-      console.log(urlSite);
       url += urlSite
-      console.log(urlSite);
 
       const link = document.createElement('a');
       link.target = '_blank';
@@ -77,11 +75,9 @@ export class CoursesComponent implements OnInit {
     dialogRef.afterClosed()
     .subscribe(
       (result) => {
-        console.log("resultado de fecchar: ", result);
         if (result) {
           this._courseService.delete(course.id).subscribe(
             (res) => {
-              console.log("deu certo: ", res);
               this.loadCourses()
             },
             (err) => {
@@ -96,7 +92,6 @@ export class CoursesComponent implements OnInit {
   }
 
   update(course: Course) {
-    console.log("antes da dialog",course);
     const matDialogConfig = new MatDialogConfig()
     matDialogConfig.disableClose = false
     matDialogConfig.autoFocus= true
@@ -123,7 +118,7 @@ export class CoursesComponent implements OnInit {
     this._courseService.all().subscribe(
       (res: any) => {
         this.courses = res
-        console.log(this.courses);      },
+      },
       (err) => console.log(err)
     )
   }

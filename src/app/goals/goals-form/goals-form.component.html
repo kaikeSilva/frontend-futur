@@ -31,7 +31,7 @@
         </div>
 
         <div *ngIf="creating">
-            <mat-label>Cursos</mat-label>
+            <mat-label>Atividades</mat-label>
             <mat-select 
             formControlName="courses"
             multiple>
@@ -41,7 +41,7 @@
             </mat-select>
 
             <div fxLayout="row">
-                <small *ngIf="courses?.errors?.required && (courses?.dirty || courses?.touched)" class="text-danger">O campo cursos não pode ser vazio.</small>
+                <small *ngIf="courses?.errors?.required && (courses?.dirty || courses?.touched)" class="text-danger">O campo atividade não pode ser vazio.</small>
             </div>        
         </div>
     </div>

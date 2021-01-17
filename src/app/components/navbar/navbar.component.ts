@@ -58,7 +58,6 @@ export class NavbarComponent implements OnInit {
   logout() {
     this._authService.logout(null).subscribe(
       (result: any) => {
-      console.log(result);
       this._router.navigate(['/'])
     },
     (err: any) => console.log("deu erro",err))

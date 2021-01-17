@@ -21,7 +21,6 @@ export class AuthenticationService {
       password: formData.password
     }
 
-    console.log(data,[]);
     const url = environment.apiUrl + '/api/login'
     return this._http.post(url, data, {headers: {accept: 'application/json'}})
   }

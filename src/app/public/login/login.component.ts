@@ -35,11 +35,9 @@ export class LoginComponent implements OnInit {
   submit() {
     const formData =  this.form.getRawValue()
 
-    console.log(formData);
     this._authService.login(formData).subscribe(
       (result: any) => {
       localStorage.setItem('token', result.access_token)
-      console.log(result);
       this._router.navigate(['/dashboard'])
     },
     (err: any) => console.log("deu erro",err))

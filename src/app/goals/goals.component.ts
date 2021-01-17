@@ -56,7 +56,6 @@ export class GoalsComponent implements OnInit {
   }
 
   update(goal: Goal) {
-    console.log("antes da dialog",goal);
     const matDialogConfig = new MatDialogConfig()
     matDialogConfig.disableClose = false
     matDialogConfig.autoFocus= true
@@ -89,16 +88,13 @@ export class GoalsComponent implements OnInit {
     dialogRef.afterClosed()
     .subscribe(
       (result) => {
-        console.log("resultado de fechar: ", result);
         if (result) {
           this._goalService.delete(goal.id).subscribe(
             (res) => {
-              console.log("deu certo: ", res);
               this.loadGoals()
             },
             (err) => {
               
-              console.log("deu erro: ", err);
             }
           )
         }

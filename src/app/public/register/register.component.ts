@@ -47,7 +47,6 @@ export class RegisterComponent implements OnInit {
     this._authService.register(formData).subscribe(
       (result: any) => {
       localStorage.setItem('token', result.access_token)
-      console.log(result);
       this._router.navigate(['/dashboard'])
     },
     (err: any) => {

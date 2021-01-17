@@ -47,7 +47,6 @@ export class CircleProgressBarComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     if (this._loaded) {
-      console.log("carregando grafico");
       this.loadCircunference()
     }
   }
@@ -55,7 +54,6 @@ export class CircleProgressBarComponent implements OnInit {
   loadCircunference() {
     let strokeDashoffset = this._circunference - (((this._percentage/100)%100)*this._circunference)
     this._circle.nativeElement.style.strokeDashoffset = `${strokeDashoffset}`
-    console.log(this.calculateRGB());
     this._circle.nativeElement.style.stroke = this.calculateRGB()
   }
 

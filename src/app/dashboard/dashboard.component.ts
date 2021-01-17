@@ -87,7 +87,6 @@ export class DashboardComponent implements OnInit {
   }
 
   goalCliked(goal: Goal) {
-    console.log("goal", goal);
     this.buttons.forEach( btn => {
       if (+btn.nativeElement.id == goal.id) {
           btn.nativeElement.classList.add('focus')
@@ -100,11 +99,9 @@ export class DashboardComponent implements OnInit {
   }
 
   formatDate(date: Date = new Date()) {
-    console.log(date);
     let month = date.getMonth()+1;
     let year = date.getFullYear();
     let day = date.getDate();
-    console.log(date);
     return day+'-'+month + '-' + year;
   }
 }
