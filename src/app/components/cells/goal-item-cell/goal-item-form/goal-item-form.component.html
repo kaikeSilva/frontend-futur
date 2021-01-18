@@ -1,0 +1,41 @@
+
+<h2 mat-dialog-title>{{title}}</h2>
+
+<mat-dialog-content>
+    <div [formGroup]="form">
+
+        <div class="d-flex  px-3 py-2 input-shadow">
+            <mat-icon>feedback</mat-icon>
+            <textarea 
+            placeholder="Adicione comentários sobre este item"
+            formControlName="comments" 
+            class="w-100 ml-1" 
+            rows="12">
+            </textarea>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div
+    fxFlex="100"
+    fxLayout="row"
+    fxLayoutAlign="end center">
+        <div 
+        fxFlex="70"
+        fxLayout="row"
+        fxLayoutAlign="end center"
+        fxLayoutGap="10px"
+        class="border" >
+            <button 
+                type="button"
+                mat-dialog-close
+                class="w-50 py-2 px-3 button-shadow-primary-red" >Cancel</button>
+
+            <button
+                type="button"
+                (click)="update()"
+                class="w-50 py-2 px-3 button-shadow-primary-blue"
+            >confirmar</button>
+        </div>
+    </div>
+</mat-dialog-actions>

@@ -11,8 +11,11 @@ export class GoalItemService {
     private _http: HttpClient,
   ) { }
 
-  update(id: number) {
+  update({formData, id }: { formData?: any; id?: number;} = {}) {
+    
+    const data = formData ? { comments:  formData.comments} : []
+    console.log(data);
     const url = environment.apiUrl + '/api/goal-items/'+id
-    return this._http.put(url,[], {headers: {accept: 'application/json', authorization: "Bearer "+localStorage.getItem('token')}})
+    return this._http.put(url, data, {headers: {accept: 'application/json', authorization: "Bearer "+localStorage.getItem('token')}})
   }
 }

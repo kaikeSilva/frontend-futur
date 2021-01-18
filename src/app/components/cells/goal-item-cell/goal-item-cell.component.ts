@@ -1,7 +1,9 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, SimpleChange, ViewChildren } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import { GoalItemService } from 'src/app/goals/goal-item.service';
 import { GoalItem } from 'src/app/models/goal-item';
+import { GoalItemFormComponent } from './goal-item-form/goal-item-form.component';
 
 @Component({
   selector: 'app-goal-item-cell',
@@ -24,7 +26,8 @@ export class GoalItemCellComponent implements OnInit {
   }
 
   constructor(
-    private _goalItemService: GoalItemService
+    private _goalItemService: GoalItemService,
+    private _dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -59,9 +62,32 @@ export class GoalItemCellComponent implements OnInit {
   done(action: string) {
     // TODO: adicionar ação para item concluido, desfeito e navegar para recurso
     this.loading = true; 
-    this._goalItemService.update(this.goalItem.id).subscribe(
+    this._goalItemService.update({id: this.goalItem.id}).subscribe(
       (res) => {
         this.ChangeGoalItemStatusEvent.emit(this.goalItem.goal_id)
+      }
+    )
+  }
+
+  update(goalItem: GoalItem) {
+    const matDialogConfig = new MatDialogConfig()
+    matDialogConfig.disableClose = false
+    matDialogConfig.autoFocus= true
+    matDialogConfig.width = "60%"
+    matDialogConfig.data = {
+      goalItem: goalItem
+    }
+    
+    const dialogRef = this._dialog.open(
+      GoalItemFormComponent, matDialogConfig)
+    
+    dialogRef.afterClosed()
+    .subscribe(
+      (result) => {
+        if (result) {
+          this.ChangeGoalItemStatusEvent.emit(this.goalItem.goal_id)
+        }
+        else console.log("erro");
       }
     )
   }

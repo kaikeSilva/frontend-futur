@@ -39,6 +39,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { DATE_FORMATS } from './models/date-formats';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { GoalItemFormComponent } from './components/cells/goal-item-cell/goal-item-form/goal-item-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +57,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     CourseCardComponent,
     LinearProgressBarComponent,
     GoalItemCellComponent,
+    GoalItemFormComponent,
   ],
   imports: [
     BrowserModule,

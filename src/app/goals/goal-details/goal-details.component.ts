@@ -42,7 +42,7 @@ export class GoalDetailsComponent implements OnInit {
   }
 
   changeStatus(goalItem: any) {
-    this._goalItemService.update(goalItem.id).subscribe(
+    this._goalItemService.update({id: goalItem.id}).subscribe(
       (response) => {
         this.loadGoal()
       },

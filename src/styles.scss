@@ -36,6 +36,12 @@ body {
     outline: none !important;
 }
 
+input, textarea {
+    border: none;
+    outline: none;
+    background: none;
+}
+
 button {
     border: none;
     outline: none;

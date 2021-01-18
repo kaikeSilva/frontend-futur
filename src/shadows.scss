@@ -34,6 +34,23 @@
      -6px -6px 9px color(boxShadowLight-1);
 }
 
+
+.button-shadow-primary-red {
+    border-radius: 25px;
+    color: color(lightColor);
+    background-color: color(prymaryLightRed);
+    box-shadow: 3px 3px 6px color(boxShadowDark-1),
+     -3px -3px 6px color(boxShadowLight-1);
+     transition: box-shadow ease-in-out .3s,
+     background-color ease-in-out .3s;
+}
+
+
+.button-shadow-primary-red:hover {
+    background-color: color(prymaryDarkRed);
+    box-shadow: 6px 6px 9px color(boxShadowDark-1),
+     -6px -6px 9px color(boxShadowLight-1);
+}
 .card-shadow {
     border-radius: 5px;
     box-shadow: 3px 3px 6px color(boxShadowDark-1),
