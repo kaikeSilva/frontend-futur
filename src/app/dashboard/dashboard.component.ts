@@ -76,9 +76,15 @@ export class DashboardComponent implements OnInit {
         this.user = res
         if(goalId) {
           this.user.goals.forEach((goal) => {
-            if(goalId == goal.id) this.goal = goal
+            if(goalId == goal.id) {
+              console.log("dentro do if",goal);
+              this.goal = goal
+            } else {
+              console.log("goal nao encontrado",this.user);
+            }
           })
         } else {
+          console.log("dentro do else",this.user.goals[0]);
           this.goal = this.user.goals[0]
         }
       },
@@ -89,7 +95,7 @@ export class DashboardComponent implements OnInit {
   goalCliked(goal: Goal) {
     this.buttons.forEach( btn => {
       if (+btn.nativeElement.id == goal.id) {
-          btn.nativeElement.classList.add('focus')
+        btn.nativeElement.classList.add('focus')
       } else {
         btn.nativeElement.classList.remove('focus')
       }
